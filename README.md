@@ -63,3 +63,9 @@ python3.12 -m venv .venv
 ```
 
 依次完整运行 `02_features.ipynb`、`base_line.ipynb`、`time_decay.ipynb`、`lstm_multitask.ipynb`。已执行的 Notebook 和汇总结果随代码保存；原始/处理后 CSV、历史缓存、逐场预测、模型权重和虚拟环境由 `.gitignore` 排除，在本地按此顺序重新生成。
+
+## 模型解释
+
+前四本Notebook完成后，运行[post_analysis.ipynb](notebooks/post_analysis.ipynb)，读取已保存模型：导出22个逻辑回归模型的完整系数，展示历史比赛的固定时间权重，并整理近期/交锋输入组的贡献及多任务损失权重。该步骤不重新训练模型。
+
+解释见[reports/post_analysis/RESULTS.zh-CN.md](reports/post_analysis/RESULTS.zh-CN.md)。系数、时间权重和损失权重含义不同，均不能直接当作特征重要性百分比。

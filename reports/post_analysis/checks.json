@@ -1,0 +1,13 @@
+{
+  "models_reconstructed": 22,
+  "manual_softmax_and_raw_units_verified": true,
+  "time_weight_sums_verified": true,
+  "paired_intervals_match_original": true,
+  "input_files_unchanged": true,
+  "test_matches": 11772,
+  "input_hashes": {
+    "data/processed/cleaned.csv": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
+    "reports/lstm_multitask/test_predictions.csv": "4cdb8a359708b356fc01f099c4d99d8c5bf3c015af7b7faf6d12fdc0b68b7fff",
+    "reports/lstm_multitask/selection.json": "4330e976fa2d70f9b653ab2b852edef231b7b9df44a88094cbdca0e54df53136"
+  }
+}

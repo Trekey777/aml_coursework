@@ -1,0 +1,4 @@
+model,feature,raw_unit_change,H_A_probability_ratio_multiplier
+TD_M3,elo_diff,100.0,1.859077691966086
+TD_M3,recent_gd_diff,1.0,1.1497369130453217
+TD_M3,recent_ppg_diff,1.0,0.9100268418931953
