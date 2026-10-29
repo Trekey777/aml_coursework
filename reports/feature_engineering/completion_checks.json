@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "output_hash_matches": true,
+  "raw_files_unchanged": true,
+  "existing_elo_preserved": true,
+  "only_strictly_earlier_ratings": true,
+  "latest_rating_independently_checked_with_merge_asof": true,
+  "old_ratings_allowed": true,
+  "same_day_and_future_excluded": true,
+  "optional_columns_preserved": true,
+  "forms_independently_checked": true,
+  "input_rows": 230557,
+  "output_rows": 137603,
+  "output_elo_missing_count": 0,
+  "remaining_missing_elo_rows_removed": true,
+  "all_valid_results_used_for_history": true
+}

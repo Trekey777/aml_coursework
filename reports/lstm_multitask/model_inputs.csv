@@ -1,0 +1,9 @@
+model,base_inputs,recent_sequence,h2h_sequence,training_targets,outputs,lambda
+ST_B,"Division one-hot, elo_diff, h2h_count, h2h_missing",none,none,FTResult,outcome probabilities,0.0
+MT_B,"Division one-hot, elo_diff, h2h_count, h2h_missing",none,none,FTResult + q_H/q_D/q_A,outcome probabilities + odds probabilities,0.3
+ST_F,"Division one-hot, elo_diff, h2h_count, h2h_missing","home+away each 5 x [points,GD,draw,age]",none,FTResult,outcome probabilities,0.0
+MT_F,"Division one-hot, elo_diff, h2h_count, h2h_missing","home+away each 5 x [points,GD,draw,age]",none,FTResult + q_H/q_D/q_A,outcome probabilities + odds probabilities,0.3
+ST_H,"Division one-hot, elo_diff, h2h_count, h2h_missing",none,"all prior x [points difference,GD,draw,age]",FTResult,outcome probabilities,0.0
+MT_H,"Division one-hot, elo_diff, h2h_count, h2h_missing",none,"all prior x [points difference,GD,draw,age]",FTResult + q_H/q_D/q_A,outcome probabilities + odds probabilities,1.0
+ST_FH,"Division one-hot, elo_diff, h2h_count, h2h_missing","home+away each 5 x [points,GD,draw,age]","all prior x [points difference,GD,draw,age]",FTResult,outcome probabilities,0.0
+MT_FH,"Division one-hot, elo_diff, h2h_count, h2h_missing","home+away each 5 x [points,GD,draw,age]","all prior x [points difference,GD,draw,age]",FTResult + q_H/q_D/q_A,outcome probabilities + odds probabilities,0.3

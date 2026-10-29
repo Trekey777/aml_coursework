@@ -1,0 +1,36 @@
+{
+  "sequence_cache_verified": true,
+  "strict_past_ages": true,
+  "padding_invariance": true,
+  "empty_h2h_zero": true,
+  "both_tasks_reach_both_encoders": true,
+  "gradient_checks": [
+    {
+      "task": "outcome",
+      "recent": 0.0768902562558651,
+      "h2h": 0.02770652435719967,
+      "shared": 1.9789437651634216
+    },
+    {
+      "task": "odds",
+      "recent": 0.0889576030895114,
+      "h2h": 0.018201567232608795,
+      "shared": 1.7509465515613556
+    }
+  ],
+  "train_only_base_preprocessing": true,
+  "no_current_odds_in_forward": true,
+  "saved_models_reload_checked": true,
+  "test_matches": 11772,
+  "final_seeds": [
+    20261028,
+    20261029,
+    20261030
+  ],
+  "raw_unchanged": true,
+  "cleaned_unchanged": true,
+  "finished_utc": "2026-10-29T11:57:58.598547+00:00",
+  "persisted_predictions_independently_checked": true,
+  "seed_ensembles_independently_checked": true,
+  "notebook_code_sha256": "6676169e89de5942f3c95037586ebf2a0a3cb0858e1c3fd4a668df6819cd8535"
+}

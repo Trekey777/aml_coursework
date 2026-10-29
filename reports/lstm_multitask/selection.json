@@ -1,0 +1,91 @@
+{
+  "selected": {
+    "B": {
+      "single": {
+        "lambda": 0.0,
+        "epochs": 8,
+        "validation_log_loss": 1.0168958624013136
+      },
+      "multi": {
+        "lambda": 0.3,
+        "epochs": 8,
+        "validation_log_loss": 1.0166480983165962
+      },
+      "validation_preferred": "multi"
+    },
+    "F": {
+      "single": {
+        "lambda": 0.0,
+        "epochs": 8,
+        "validation_log_loss": 1.0158646431916059
+      },
+      "multi": {
+        "lambda": 0.3,
+        "epochs": 8,
+        "validation_log_loss": 1.0156148479847957
+      },
+      "validation_preferred": "multi"
+    },
+    "H": {
+      "single": {
+        "lambda": 0.0,
+        "epochs": 8,
+        "validation_log_loss": 1.0161445955313546
+      },
+      "multi": {
+        "lambda": 1.0,
+        "epochs": 8,
+        "validation_log_loss": 1.0156215974789347
+      },
+      "validation_preferred": "multi"
+    },
+    "FH": {
+      "single": {
+        "lambda": 0.0,
+        "epochs": 8,
+        "validation_log_loss": 1.0150989866046642
+      },
+      "multi": {
+        "lambda": 0.3,
+        "epochs": 8,
+        "validation_log_loss": 1.01475867618675
+      },
+      "validation_preferred": "multi"
+    }
+  },
+  "config": {
+    "hidden": 8,
+    "trunk": 32,
+    "dropout": 0.1,
+    "batch_size": 1024,
+    "max_epochs": 20,
+    "patience": 4,
+    "min_delta": 0.0001,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "gradient_clip": 1.0,
+    "half_f": 90.0,
+    "half_h": 365.0
+  },
+  "lambda_grid": [
+    0.0,
+    0.1,
+    0.3,
+    1.0
+  ],
+  "seeds": [
+    20261028,
+    20261029,
+    20261030
+  ],
+  "selection_seed": 20261028,
+  "frozen_utc": "2026-10-29T11:56:07.833306+00:00",
+  "cleaned_sha256": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
+  "sequence_sha256": "ce067b16a789a552cb19c2f6314097fdceb4d4e6b12c852e5436a8638861b0f7",
+  "test_used_for_selection": false,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.4"
+  },
+  "device": "cuda"
+}

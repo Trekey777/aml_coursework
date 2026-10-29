@@ -1,0 +1,184 @@
+{
+  "selected": {
+    "TD_M1": {
+      "C": 0.01,
+      "validation_score": 1.0176660310719101
+    },
+    "TD_O1": {
+      "C": 0.01,
+      "validation_score": 0.013939437442528289
+    },
+    "TD_Q1": {
+      "C": 0.01,
+      "validation_score": 0.9972104659251484
+    },
+    "TD_M2": {
+      "C": 0.01,
+      "validation_score": 1.0185807644682587
+    },
+    "TD_O2": {
+      "C": 0.01,
+      "validation_score": 0.014692156700541404
+    },
+    "TD_Q2": {
+      "C": 0.01,
+      "validation_score": 0.9974297777621957
+    },
+    "TD_M3": {
+      "C": 0.01,
+      "validation_score": 1.0177640906359897
+    },
+    "TD_O3": {
+      "C": 0.01,
+      "validation_score": 0.013806728175346386
+    },
+    "TD_Q3": {
+      "C": 0.01,
+      "validation_score": 0.9973423753056831
+    }
+  },
+  "frozen_utc": "2026-10-29T11:55:16.575954+00:00",
+  "cleaned_sha256": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
+  "half_life_recent_days": 90.0,
+  "half_life_h2h_days": 365.0,
+  "C_grid": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "specs": {
+    "TD_M1": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true,
+      "group": "outcome"
+    },
+    "TD_O1": {
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true,
+      "group": "odds_fit"
+    },
+    "TD_Q1": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true,
+      "group": "odds_increment"
+    },
+    "TD_M2": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "outcome"
+    },
+    "TD_O2": {
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "odds_fit"
+    },
+    "TD_Q2": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "odds_increment"
+    },
+    "TD_M3": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "outcome"
+    },
+    "TD_O3": {
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "odds_fit"
+    },
+    "TD_Q3": {
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true,
+      "group": "odds_increment"
+    }
+  },
+  "note": "Half-lives fixed in advance; not validated as optimal."
+}

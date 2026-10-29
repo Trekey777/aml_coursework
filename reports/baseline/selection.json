@@ -1,0 +1,250 @@
+{
+  "selected": {
+    "M0": {
+      "C": 0.01,
+      "validation_primary_score": 1.0184735178100117
+    },
+    "M1": {
+      "C": 0.01,
+      "validation_primary_score": 1.0176792475910839
+    },
+    "M2": {
+      "C": 0.01,
+      "validation_primary_score": 1.018339662051425
+    },
+    "M3": {
+      "C": 0.01,
+      "validation_primary_score": 1.0175170661361828
+    },
+    "O0": {
+      "C": 0.01,
+      "validation_primary_score": 0.01481244812703129
+    },
+    "O1": {
+      "C": 0.01,
+      "validation_primary_score": 0.013978198502785906
+    },
+    "O2": {
+      "C": 0.01,
+      "validation_primary_score": 0.014661597956905217
+    },
+    "O3": {
+      "C": 0.01,
+      "validation_primary_score": 0.01380422085260013
+    },
+    "Qcal": {
+      "C": 1.0,
+      "validation_primary_score": 0.9962463454220624
+    },
+    "Q0": {
+      "C": 0.01,
+      "validation_primary_score": 0.9972815450939337
+    },
+    "Q1": {
+      "C": 0.01,
+      "validation_primary_score": 0.997171860718611
+    },
+    "Q2": {
+      "C": 0.01,
+      "validation_primary_score": 0.9973993043798484
+    },
+    "Q3": {
+      "C": 0.01,
+      "validation_primary_score": 0.9972900971327725
+    }
+  },
+  "frozen_utc": "2026-10-28T22:43:15.129510+00:00",
+  "cleaned_sha256": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
+  "fixed_recent_window": 5,
+  "h2h_window": "all earlier direct matches, equal weight",
+  "train_end": "2020-12-31",
+  "validation_end": "2022-12-31",
+  "test_end": "2024-12-31",
+  "C_grid": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "sample_weighting": "equal weight per match; no class balancing",
+  "specs": {
+    "M0": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing"
+      ],
+      "division": true
+    },
+    "O0": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing"
+      ],
+      "division": true
+    },
+    "Q0": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D"
+      ],
+      "division": true
+    },
+    "M1": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true
+    },
+    "O1": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true
+    },
+    "Q1": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean"
+      ],
+      "division": true
+    },
+    "M2": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "O2": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "Q2": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "M3": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "O3": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "Q3": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_draw_rate_mean",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_draw_rate"
+      ],
+      "division": true
+    },
+    "Qcal": {
+      "group": "odds_calibration",
+      "target": "outcome",
+      "columns": [
+        "q_log_H_D",
+        "q_log_A_D"
+      ],
+      "division": false
+    }
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  }
+}

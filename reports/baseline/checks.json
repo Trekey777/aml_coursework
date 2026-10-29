@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "fixed_recent_window": 5,
+  "models_trained": 13,
+  "validation_fits": 39,
+  "test_matches": 11772,
+  "history_excludes_current_day": true,
+  "all_valid_results_used_for_history": true,
+  "synthetic_orientation_and_counterfactual_checks": true,
+  "independent_history_checks": 24,
+  "soft_target_weighting_checked": true,
+  "preprocessing_fit_only_on_training_period": true,
+  "selection_frozen_before_test": true,
+  "same_test_rows_for_all_models": true,
+  "all_probabilities_valid": true,
+  "saved_model_reload_matches": true,
+  "cleaned_and_raw_files_unchanged": true,
+  "selected_before": "2026-10-28T22:43:15.129510+00:00",
+  "finished_utc": "2026-10-28T22:43:44.786609+00:00",
+  "persisted_predictions_independently_checked": true,
+  "notebook_code_sha256": "f330bd58e342aad9c6ffa23cb10a587c279e6ad5a82f6aba945506118c323a2c"
+}

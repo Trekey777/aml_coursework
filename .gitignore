@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.npz
+
+# Recreated by the notebooks; keep scores, reports and figures in Git.
+reports/**/models/
+reports/**/test_predictions.csv
+reports/**/seed_predictions.csv
+reports/**/ensemble_predictions.npz
+reports/feature_engineering/completion_elo_lineage.csv
+reports/feature_engineering/completion_excluded_matches.csv
+reports/feature_engineering/cleaned_excluded_matches.csv

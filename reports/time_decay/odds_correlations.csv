@@ -1,0 +1,7 @@
+feature,target,spearman
+recent_ppg_diff,q_H-q_A,0.568373643429452
+recent_gd_diff,q_H-q_A,0.6110041251773548
+recent_draw_rate_mean,q_D,0.145773994202381
+h2h_ppg_diff,q_H-q_A,0.49701487498013003
+h2h_gd,q_H-q_A,0.5448534498151935
+h2h_draw_rate,q_D,0.12852857207320825

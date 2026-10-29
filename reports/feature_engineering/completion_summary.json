@@ -1,0 +1,73 @@
+{
+  "input_rows": 230557,
+  "output_rows": 137603,
+  "excluded_rows": 92954,
+  "core_excluded_rows": 3,
+  "elo_excluded_rows": 92951,
+  "valid_result_history_pool_rows": 230554,
+  "input_hashes": {
+    "data/raw/Matches.csv": "6905ca5324df95282fefcdc2b320caed40745254055f38a3e5a768b8a073ec2b",
+    "data/raw/EloRatings.csv": "29f02206a928dc04d2e46e8e56c2458d42fc591b93a767c9ce2098d9a66bca11"
+  },
+  "output": "data/processed/补全缺失值.csv",
+  "output_columns": 69,
+  "output_sha256": "b8d3edb7e5936fc2434a399f1580e35eaf69633e1f0840a71bd59c0977f58445",
+  "date_policy": "use MatchDate as recorded; strictly earlier dates only",
+  "elo_policy": "preserve original; fill missing side from EloRatings.csv, exact normalized country/team, strictly earlier, no age limit; drop match if either Elo remains missing",
+  "form_policy": "rebuild all four columns; total points in exactly last 3/5 prior valid matches; insufficient history NA plus count/missing flags",
+  "elo": {
+    "Home": {
+      "originally_missing_retained": 4252,
+      "filled": 4252,
+      "still_missing": 0,
+      "status_counts": {
+        "original_kept": 133351,
+        "filled": 4252
+      }
+    },
+    "Away": {
+      "originally_missing_retained": 4276,
+      "filled": 4276,
+      "still_missing": 0,
+      "status_counts": {
+        "original_kept": 133327,
+        "filled": 4276
+      }
+    }
+  },
+  "elo_before_drop": {
+    "Home": {
+      "originally_missing": 88959,
+      "filled": 10623,
+      "still_missing": 78336
+    },
+    "Away": {
+      "originally_missing": 89028,
+      "filled": 10659,
+      "still_missing": 78369
+    }
+  },
+  "filled_elo_age_days": {
+    "Home": {
+      "min": 11,
+      "max": 9072
+    },
+    "Away": {
+      "min": 1,
+      "max": 9065
+    }
+  },
+  "both_elo_available_after": 137603,
+  "form_missing_after": {
+    "Form3Home": 877,
+    "Form5Home": 1475,
+    "Form3Away": 876,
+    "Form5Away": 1454
+  },
+  "valid_odds_rows": 135243,
+  "rating_checks": {
+    "invalid_rating_rows": 0,
+    "conflicting_team_dates": 0
+  },
+  "raw_hashes_unchanged": true
+}

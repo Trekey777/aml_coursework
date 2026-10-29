@@ -1,0 +1,12 @@
+{
+  "strict_past_sequences": true,
+  "independent_sequence_checks": 24,
+  "equal_weights_reproduce_baseline": true,
+  "same_test_rows": 11772,
+  "all_models_converged": true,
+  "raw_hashes_unchanged": true,
+  "cleaned_unchanged": true,
+  "finished_utc": "2026-10-29T11:55:43.319873+00:00",
+  "persisted_predictions_independently_checked": true,
+  "notebook_code_sha256": "b3e495a5c02ccc1c8adb18b597574387979677bba638ecb8da6004e567fe5df2"
+}

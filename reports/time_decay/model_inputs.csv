@@ -1,0 +1,10 @@
+model,target,inputs
+TD_M1,outcome,"Division, elo_diff, h2h_count, h2h_missing, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean"
+TD_O1,odds,"Division, elo_diff, h2h_count, h2h_missing, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean"
+TD_Q1,outcome,"Division, elo_diff, h2h_count, h2h_missing, q_log_H_D, q_log_A_D, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean"
+TD_M2,outcome,"Division, elo_diff, h2h_count, h2h_missing, h2h_ppg_diff, h2h_gd, h2h_draw_rate"
+TD_O2,odds,"Division, elo_diff, h2h_count, h2h_missing, h2h_ppg_diff, h2h_gd, h2h_draw_rate"
+TD_Q2,outcome,"Division, elo_diff, h2h_count, h2h_missing, q_log_H_D, q_log_A_D, h2h_ppg_diff, h2h_gd, h2h_draw_rate"
+TD_M3,outcome,"Division, elo_diff, h2h_count, h2h_missing, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean, h2h_ppg_diff, h2h_gd, h2h_draw_rate"
+TD_O3,odds,"Division, elo_diff, h2h_count, h2h_missing, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean, h2h_ppg_diff, h2h_gd, h2h_draw_rate"
+TD_Q3,outcome,"Division, elo_diff, h2h_count, h2h_missing, q_log_H_D, q_log_A_D, recent_ppg_diff, recent_gd_diff, recent_draw_rate_mean, h2h_ppg_diff, h2h_gd, h2h_draw_rate"

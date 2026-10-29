@@ -1,0 +1,19 @@
+{
+  "upstream": "https://github.com/xgabora/Club-Football-Match-Data",
+  "snapshot_commit": "4f4d8dd15f0e7290808e864b2f0b9f7457ee84fa",
+  "snapshot_commit_date": "2025-06-27",
+  "retrieved_date": "2026-10-28",
+  "reason": "Coursework-period snapshot, fixed for reproducibility",
+  "files": [
+    {
+      "path": "data/raw/Matches.csv",
+      "bytes": 43632197,
+      "sha256": "6905ca5324df95282fefcdc2b320caed40745254055f38a3e5a768b8a073ec2b"
+    },
+    {
+      "path": "data/raw/EloRatings.csv",
+      "bytes": 9878563,
+      "sha256": "29f02206a928dc04d2e46e8e56c2458d42fc591b93a767c9ce2098d9a66bca11"
+    }
+  ]
+}
