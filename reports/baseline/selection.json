@@ -53,8 +53,7 @@
       "validation_primary_score": 0.9972900971327725
     }
   },
-  "frozen_utc": "2026-10-28T22:43:15.129510+00:00",
-  "cleaned_sha256": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
+  "frozen_utc": "2026-11-01T21:28:42.792987+00:00",
   "fixed_recent_window": 5,
   "h2h_window": "all earlier direct matches, equal weight",
   "train_end": "2020-12-31",

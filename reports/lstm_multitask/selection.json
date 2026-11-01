@@ -79,9 +79,7 @@
     20261030
   ],
   "selection_seed": 20261028,
-  "frozen_utc": "2026-10-29T11:56:07.833306+00:00",
-  "cleaned_sha256": "5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35",
-  "sequence_sha256": "ce067b16a789a552cb19c2f6314097fdceb4d4e6b12c852e5436a8638861b0f7",
+  "frozen_utc": "2026-11-01T21:34:47.011804+00:00",
   "test_used_for_selection": false,
   "versions": {
     "torch": "2.11.0+cu128",

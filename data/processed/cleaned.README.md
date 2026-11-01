@@ -1,12 +1,8 @@
 # cleaned 数据集
 
-文件：[cleaned.csv](cleaned.csv)，UTF-8 BOM编码。共133,512场、46列。
+[cleaned.csv](cleaned.csv)：133,512场、46列。只用原始两份CSV直接生成，完整处理代码见[02_features.ipynb](../../notebooks/02_features.ipynb)。
 
-从补全缺失值.csv中筛选双方完整最近5场、且三项普通赔率均为有限数并大于1的比赛，再删除指定23列。保留行的值和先后顺序不变。双方Elo和四个Form均完整，三项赔率完整且有效；半场、技术统计及Elo评分日期仍可能缺失。
-
-筛选前137,603场。先排除最近5场不足的2,101场，再从剩余比赛中排除赔率缺失或无效的1,990场，共排除4,091场。赔率无空值但数值不合法的3场也已排除。
-
-删除明细在reports/feature_engineering/cleaned_excluded_matches.csv。这些筛选只作用于最终预测样本，历史统计仍基于原始文件中此前所有有效赛果。
+已有Elo保留；缺失时查找同一国家和球队、严格早于比赛日的最近评分，没有年限上限。双方Elo仍有缺失、最近5场不足或普通赔率无效的比赛删除。Form为此前恰好3/5场的积分总和，历史使用全部核心赛果有效的比赛。
 
 ## 删除列
 
@@ -83,8 +79,4 @@
 - AwayPriorMatchCount
 - OddsAvailable
 
-全部代码在[02_features.ipynb](../../notebooks/02_features.ipynb)的第9部分。填补来源等信息可按SourceRow在reports/feature_engineering/completion_elo_lineage.csv查找。半场和技术统计仍保留，当前比赛的赛后统计不能作为其赛前预测输入。
-
-这是整理后的数据表，46列不代表全部46列都应该输入模型。
-
-SHA-256：`5f3d64f2b68199c805674921056462d68f50ccb5f5203be9671053ab2fd16d35`。
+半场、技术统计及原有Elo的评分日期仍允许缺失。表中含身份、赛果和辅助记录，不代表所有列都进入模型；本场赛后统计不作为赛前预测输入。
