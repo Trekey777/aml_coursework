@@ -9,6 +9,7 @@ data/processed/*.npz
 # Recreated by the notebooks; keep scores, reports and figures in Git.
 reports/**/models/
 reports/**/test_predictions.csv
+reports/**/test_match_probabilities.csv
 reports/**/seed_predictions.csv
 reports/**/ensemble_predictions.npz
 reports/feature_engineering/completion_elo_lineage.csv

@@ -1,6 +1,6 @@
 # 足球比赛分析：特征工程
 
-运行[02_features.ipynb](notebooks/02_features.ipynb)，从上到下执行即可生成最终的[cleaned.csv](data/processed/cleaned.csv)。全部处理代码都在Notebook内；本步骤不训练预测模型。
+运行[preprocess.ipynb](notebooks/preprocess.ipynb)，从上到下执行即可生成最终的[cleaned.csv](data/processed/cleaned.csv)。全部处理代码都在Notebook内；本步骤不训练预测模型。
 
 ## 当前流程
 
@@ -32,11 +32,11 @@
 
 ## 第一版 baseline
 
-运行[base_line.ipynb](notebooks/base_line.ipynb)：近期固定5场，历史交锋使用此前全部记录，比较M0、M1、M2、M3四个逻辑回归模型，并分析与赔率的关系。所有代码均在Notebook内。
+运行[baseline.ipynb](notebooks/baseline.ipynb)：近期固定5场，历史交锋使用此前全部记录，比较M0、M1、M2、M3四个逻辑回归模型，并分析与赔率的关系。所有代码均在Notebook内。
 
 2000—2020训练，2021—2022验证，2023—2024测试；2025暂不进入本版。验证仅选择正则化强度，不选择近期窗口。
 
-结果保存在[reports/baseline/RESULTS.zh-CN.md](reports/baseline/RESULTS.zh-CN.md)，完整输入清单、验证分数、逐场测试概率、模型和检查记录位于reports/baseline/。
+结果分析在[reports/baseline/baseline.md](reports/baseline/baseline.md)。测试分数、配对区间、Spearman 相关和比较图位于 reports/baseline/；后续笔记本读取的特征、逐场概率和模型也在同一目录。
 
 ## 时间衰减与LSTM多任务扩展
 
@@ -62,7 +62,7 @@ python3.12 -m venv .venv
 .venv/bin/jupyter lab
 ```
 
-依次完整运行 `02_features.ipynb`、`base_line.ipynb`、`time_decay.ipynb`、`lstm_multitask.ipynb`。已执行的 Notebook 和汇总结果随代码保存；原始/处理后 CSV、历史缓存、逐场预测、模型权重和虚拟环境由 `.gitignore` 排除，在本地按此顺序重新生成。
+依次完整运行 `preprocess.ipynb`、`baseline.ipynb`、`time_decay.ipynb`、`lstm_multitask.ipynb`。已执行的 Notebook 和汇总结果随代码保存；原始/处理后 CSV、历史缓存、逐场预测、模型权重和虚拟环境由 `.gitignore` 排除，在本地按此顺序重新生成。
 
 ## 模型解释
 
