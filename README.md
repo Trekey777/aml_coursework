@@ -4,25 +4,31 @@
 
 ## 当前流程
 
-1. 删除七个核心字段任一项缺失或无效的比赛。
-2. 保留已有Elo；缺失的一侧从评分表查找同一国家和球队、严格早于比赛日的最近评分，没有时长上限。
-3. 补全后任意一方Elo仍缺失，就删除该场。
-4. 按此前有效比赛重算四个Form字段。历史池使用全部比分和赛果有效的比赛，完整窗口不足时留空并记录实际场数。
-5. 保存补全缺失值.csv中间表及处理明细。
-6. 排除任意一方最近5场不足，以及任意一项普通赔率缺失、非有限数或不大于1的比赛。
-7. 删除指定的17列暂不使用字段和6列填补记录，生成cleaned.csv。
+1. 读取 `Matches.csv` 与 `EloRatings.csv`，计算各列缺失率。
+2. 删除 `HomeShots` 到 `C_PHB` 以及 `MatchTime`。这些列缺失过多，本项目不使用。
+3. 删除比分或赛果缺失、赛果与比分不一致、或主客队相同的比赛。
+4. 已有 Elo 不覆盖。缺失的一侧按同一国家、同一球队，取严格早于比赛日的最近评分。补全后仍缺任一侧的比赛删除。
+5. 用全部有效赛果重算赛前 Form。双方近 5 场必须完整，任一不足则删除该场。近 3 场不足时对应 Form3 留空。
+6. `OddHome`、`OddDraw`、`OddAway` 必须是大于 1 的有限数，否则删除该场。
+7. 写出 `data/processed/cleaned.csv`。
 
 ## 当前结果
 
-原始230,557场，核心信息排除3场，补全后仍缺Elo排除92,951场。在补全缺失值.csv基础上，再排除最近5场不足的2,101场，以及其余赔率无效的1,990场。最终cleaned保留133,512场、46列；双方Elo、四个Form和三项普通赔率均完整，赔率全部大于1。未使用的技术统计和评分日期仍可为空。
+原始 238,858 场。比分与赛果无效删除 4 场。在双方都有 Elo 的比赛里，近 5 场不完整删除 2,170 场，赔率缺失或不大于 1 删除 2,000 场。`cleaned.csv` 保留 141,733 场、21 列：身份与联赛、双方 Elo、Form3/Form5、全场与半场比分和赛果、三项普通赔率、国家。双方 Elo、Form5 和三项赔率完整。半场比分和 Form3 仍可为空。
 
-[cleaned字段说明](data/processed/cleaned.README.md)列出删除与保留字段。原始两份CSV不变，来源、删除原因和检查结果在reports/feature_engineering/。
-
-46列包含身份、目标和检查信息，不代表模型需要输入46个特征。
+原始两份 CSV 不变。补全前后的缺失对比在 `reports/feature_engineering/completion_missing_before_after.csv`。这 21 列是清洗后的比赛表，不是模型输入清单。
 
 ## 运行
 
-使用.venv虚拟环境和AML Football (.venv)内核。从项目根目录启动：
+使用 `.venv` 虚拟环境和 AML Football (.venv) 内核。从项目根目录启动。
+
+Windows：
+
+```powershell
+.\.venv\Scripts\jupyter.exe lab
+```
+
+Linux 或 macOS：
 
 ```bash
 .venv/bin/jupyter lab
@@ -49,11 +55,22 @@
 
 结果分别在 [时间衰减报告](reports/time_decay/RESULTS.zh-CN.md) 和 [LSTM报告](reports/lstm_multitask/RESULTS.zh-CN.md)。各目录同时保存参数、输入说明、逐场预测、配对比较和模型。
 
-LSTM使用PyTorch 2.11.0，当前环境安装CUDA 12.8版本，自动选择GPU或CPU。重新安装依赖可运行 `.venv/bin/python -m pip install -r requirements.txt`；无NVIDIA显卡的机器也可以按PyTorch官方说明改装CPU版本。
+LSTM使用PyTorch 2.11.0，当前环境安装CUDA 12.8版本，自动选择GPU或CPU。重新安装依赖可运行 `.venv/bin/python -m pip install -r requirements.txt`（Windows 为 `.\.venv\Scripts\python.exe -m pip install -r requirements.txt`）。无 NVIDIA 显卡的机器可以按 PyTorch 官方说明改装 CPU 版本。
 
 ## 从 GitHub 克隆后运行
 
-先按 [原始数据说明](data/raw/README.md) 下载两份固定版本的 CSV，再创建环境：
+先按 [原始数据说明](data/raw/README.md) 下载两份固定版本的 CSV，再创建环境。
+
+Windows：
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m ipykernel install --sys-prefix --name aml-football --display-name "AML Football (.venv)"
+.\.venv\Scripts\jupyter.exe lab
+```
+
+Linux 或 macOS：
 
 ```bash
 python3.12 -m venv .venv
