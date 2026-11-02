@@ -51,8 +51,6 @@ Windows 使用 `.venv\Scripts\python.exe` 和 `.venv\Scripts\jupyter.exe`。从�
 
 当前结论的范围与限制见总报告。近期窗口固定五场，尚未比较其他 lookback 窗口。2023—2024 年此前已被查看，当前比较不是全新的盲测。
 
-## 完整 AI 交付包
+## 本地 AI 交付包
 
-[下载完整交付 ZIP](https://github.com/Trekey777/aml_coursework/releases/download/ai-delivery-2026-11-02/AML_Football_AI_Delivery_2026-11-02.zip)，包含原始与处理后数据、四本已执行 Notebook、全部模型、逐场预测、评分与区间、图片、报告及重构前参考快照。解压后先阅读 `AI_HANDOFF.md`。
-
-压缩包发布为 GitHub Release 附件，未放进普通 Git 历史。具体内容见[交付说明](deliverables/README.md)。
+完整压缩包仅保留在本地 `deliverables/`，不通过 GitHub 发布。它包含代码、数据、模型、预测、结果和归档，解压后先阅读 `AI_HANDOFF.md`。内容说明见[交付说明](deliverables/README.md)。
