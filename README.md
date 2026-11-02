@@ -1,76 +1,23 @@
-# 足球比赛分析：特征工程
+# 足球比赛分析
 
-运行[preprocess.ipynb](notebooks/preprocess.ipynb)，从上到下执行即可生成最终的[cleaned.csv](data/processed/cleaned.csv)。全部处理代码都在Notebook内；本步骤不训练预测模型。
+比较近期五场与全部历史交锋对胜平负预测的帮助，以及它们与博彩市场概率的关系。
 
-## 当前流程
+## 运行方式
 
-1. 读取 `Matches.csv` 与 `EloRatings.csv`，计算各列缺失率。
-2. 删除 `HomeShots` 到 `C_PHB` 以及 `MatchTime`。这些列缺失过多，本项目不使用。
-3. 删除比分或赛果缺失、赛果与比分不一致、或主客队相同的比赛。
-4. 已有 Elo 不覆盖。缺失的一侧按同一国家、同一球队，取严格早于比赛日的最近评分。补全后仍缺任一侧的比赛删除。
-5. 用全部有效赛果重算赛前 Form。双方近 5 场必须完整，任一不足则删除该场。近 3 场不足时对应 Form3 留空。
-6. `OddHome`、`OddDraw`、`OddAway` 必须是大于 1 的有限数，否则删除该场。
-7. 写出 `data/processed/cleaned.csv`。
+所有分析代码在四本 Jupyter Notebook 中。先运行预处理，再运行所需模型路线；三条路线不需要互相执行。
 
-## 当前结果
+| Notebook | 输入 | 做什么 | 输出 |
+|---|---|---|---|
+| [preprocess.ipynb](notebooks/preprocess.ipynb) | 两份原始 CSV | 清洗、补 Elo、重算 Form、共同特征、历史序列与时间划分 | `data/processed/` |
+| [baseline.ipynb](notebooks/baseline.ipynb) | 公共特征 | 等权统计＋逻辑回归；赛果、市场拟合、赔率后的历史增量 | `data/results/baseline/` |
+| [time_decay.ipynb](notebooks/time_decay.ipynb) | 公共特征和历史序列 | 90/365 天半衰期加权统计＋逻辑回归 | `data/results/time_decay/` |
+| [lstm_multitask.ipynb](notebooks/lstm_multitask.ipynb) | 公共特征和历史序列 | 单任务与硬参数共享多任务网络 | `data/results/lstm_multitask/` |
 
-原始 238,858 场。比分与赛果无效删除 4 场。在双方都有 Elo 的比赛里，近 5 场不完整删除 2,170 场，赔率缺失或不大于 1 删除 2,000 场。`cleaned.csv` 保留 141,733 场、21 列：身份与联赛、双方 Elo、Form3/Form5、全场与半场比分和赛果、三项普通赔率、国家。双方 Elo、Form5 和三项赔率完整。半场比分和 Form3 仍可为空。
+默认 `RETRAIN=False`：逻辑回归加载已有模型预测，LSTM 加载已有权重推断，不重新训练。缺少模型时，运行原有的验证选参和最终训练；改为 `RETRAIN=True` 可以强制重训。更换训练数据、输入定义或模型配置后应重新训练，不应直接复用旧模型。
 
-原始两份 CSV 不变。补全前后的缺失对比在 `reports/feature_engineering/completion_missing_before_after.csv`。这 21 列是清洗后的比赛表，不是模型输入清单。
+模型路线独立完成自己的实验；其他路线已有预测时，额外生成跨路线对照。为了得到完整总报告，建议依次运行预处理、baseline、time_decay、LSTM。每本从上到下运行。
 
-## 运行
-
-使用 `.venv` 虚拟环境和 AML Football (.venv) 内核。从项目根目录启动。
-
-Windows：
-
-```powershell
-.\.venv\Scripts\jupyter.exe lab
-```
-
-Linux 或 macOS：
-
-```bash
-.venv/bin/jupyter lab
-```
-
-依赖在requirements.txt，原始数据在data/raw/，输出在data/processed/。
-
-## 第一版 baseline
-
-运行[baseline.ipynb](notebooks/baseline.ipynb)：近期固定5场，历史交锋使用此前全部记录，比较M0、M1、M2、M3四个逻辑回归模型，并分析与赔率的关系。所有代码均在Notebook内。
-
-2000—2020训练，2021—2022验证，2023—2024测试；2025暂不进入本版。验证仅选择正则化强度，不选择近期窗口。
-
-结果分析在[reports/baseline/baseline.md](reports/baseline/baseline.md)。测试分数、配对区间、Spearman 相关和比较图位于 reports/baseline/；后续笔记本读取的特征、逐场概率和模型也在同一目录。
-
-## 时间衰减与LSTM多任务扩展
-
-按顺序运行：
-
-1. [time_decay.ipynb](notebooks/time_decay.ipynb)：近期5场、交锋全部历史，分别按90/365天半衰期计算加权统计，训练逻辑回归。输出 `time_decay_features.csv` 和 `history_sequences.npz`。
-2. [lstm_multitask.ipynb](notebooks/lstm_multitask.ipynb)：读取相同逐场历史，联合训练LSTM和预测层；比较单任务与硬参数共享多任务。主任务预测赛果，辅助任务拟合赔率概率，赔率不进入网络输入。验证集选择辅助权重和训练轮数，三个固定seed重训。
-
-两者沿用baseline的训练/验证/测试划分与比赛样本。所有代码在Notebook内，旧数据和baseline保留。
-
-结果分别在 [时间衰减报告](reports/time_decay/RESULTS.zh-CN.md) 和 [LSTM报告](reports/lstm_multitask/RESULTS.zh-CN.md)。各目录同时保存参数、输入说明、逐场预测、配对比较和模型。
-
-LSTM使用PyTorch 2.11.0，当前环境安装CUDA 12.8版本，自动选择GPU或CPU。重新安装依赖可运行 `.venv/bin/python -m pip install -r requirements.txt`（Windows 为 `.\.venv\Scripts\python.exe -m pip install -r requirements.txt`）。无 NVIDIA 显卡的机器可以按 PyTorch 官方说明改装 CPU 版本。
-
-## 从 GitHub 克隆后运行
-
-先按 [原始数据说明](data/raw/README.md) 下载两份固定版本的 CSV，再创建环境。
-
-Windows：
-
-```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m ipykernel install --sys-prefix --name aml-football --display-name "AML Football (.venv)"
-.\.venv\Scripts\jupyter.exe lab
-```
-
-Linux 或 macOS：
+## 安装
 
 ```bash
 python3.12 -m venv .venv
@@ -79,10 +26,33 @@ python3.12 -m venv .venv
 .venv/bin/jupyter lab
 ```
 
-依次完整运行 `preprocess.ipynb`、`baseline.ipynb`、`time_decay.ipynb`、`lstm_multitask.ipynb`。已执行的 Notebook 和汇总结果随代码保存；原始/处理后 CSV、历史缓存、逐场预测、模型权重和虚拟环境由 `.gitignore` 排除，在本地按此顺序重新生成。
+Windows 使用 `.venv\Scripts\python.exe` 和 `.venv\Scripts\jupyter.exe`。从项目根目录启动 Jupyter，选择 AML Football 内核。PyTorch 自动选择 GPU 或 CPU；依赖当前指定 CUDA 12.8 wheel，没有 NVIDIA 显卡时也可安装 CPU 版。
 
-## 模型解释
+## 数据和处理规则
 
-前四本Notebook完成后，运行[post_analysis.ipynb](notebooks/post_analysis.ipynb)，读取已保存模型：导出22个逻辑回归模型的完整系数，展示历史比赛的固定时间权重，并整理近期/交锋输入组的贡献及多任务损失权重。该步骤不重新训练模型。
+两份输入是 `data/raw/Matches.csv` 和 `data/raw/EloRatings.csv`，来自[课程数据集](https://github.com/xgabora/Club-Football-Match-Data)。使用项目中的数据版本，直接按记录日期处理，不与其他来源对照，也不做 hash 校验。
 
-解释见[reports/post_analysis/RESULTS.zh-CN.md](reports/post_analysis/RESULTS.zh-CN.md)。系数、时间权重和损失权重含义不同，均不能直接当作特征重要性百分比。
+- 身份、日期、全场赛果缺失或无效的记录删除。
+- 保留已有 Elo；缺失时按国家和球队查找严格早于比赛日的最近评分，不限制间隔。仍缺任一侧 Elo 的比赛不进入预测样本。
+- 近期固定最近五场，主客场都算；交锋使用此前全部直接比赛。历史池包含全部有效赛果，不因缺 Elo 或赔率而删除历史。
+- 同一天先生成全部赛前特征，再更新当日赛果。
+- 预测样本要求双方五场完整，三项普通赔率均为有限数且大于 1。
+- cleaned 保存 21 列。半场字段不进入模型；Form3/Form5 统一重算。技术统计、额外盘口和 C_* 列不进入本版。
+
+2020 年及以前训练，2021—2022 年验证选参数，最终拟合截至 2022 年，评价 2023—2024 年。2025 年及以后保留在公共表中，但不参与当前拟合和评分。标准化仅在当前拟合集学习。
+
+## 结果在哪里
+
+阅读一个[总报告](reports/reports.md)，其中包含公共数据、baseline、time_decay 和 LSTM。每本 Notebook 只更新自己的报告章节。`reports/figures/` 的四张 PNG 都由当前 Notebook 自动生成：baseline 生成赛果/赔率对比图，time_decay 生成衰减对比图和系数图，LSTM 生成预测与输入组贡献图。旧版原图继续归档。
+
+逐场预测、模型、分数、配对区间和必要解释表集中在 `data/results/<route>/`；这些是复用和计算所需的数据，不再生成大量独立说明文档。之前的实验文件保存在 `data/results/archive/` 和原路线结果目录中；无需运行独立的 post_analysis，系数、时间权重和网络贡献已经并入对应模型路线。
+
+原始数据、处理缓存、模型、逐场预测和本地归档由 `.gitignore` 排除；仓库保留四本已执行 Notebook、一个总报告及图片。克隆后把两份 CSV 放到 `data/raw/`，运行预处理和所需路线即可重建。数据、模型和预测若已在 Git 中被跟踪，仅修改 `.gitignore` 不会自动取消跟踪，提交时仍应检查文件清单。
+
+当前结论的范围与限制见总报告。近期窗口固定五场，尚未比较其他 lookback 窗口。2023—2024 年此前已被查看，当前比较不是全新的盲测。
+
+## 完整 AI 交付包
+
+[下载完整交付 ZIP](https://github.com/Trekey777/aml_coursework/releases/download/ai-delivery-2026-11-02/AML_Football_AI_Delivery_2026-11-02.zip)，包含原始与处理后数据、四本已执行 Notebook、全部模型、逐场预测、评分与区间、图片、报告及重构前参考快照。解压后先阅读 `AI_HANDOFF.md`。
+
+压缩包发布为 GitHub Release 附件，未放进普通 Git 历史。具体内容见[交付说明](deliverables/README.md)。
