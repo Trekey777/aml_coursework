@@ -1,0 +1,260 @@
+{
+  "selected": {
+    "M0": {
+      "C": 0.01,
+      "validation_score": 1.018473517819226
+    },
+    "O0": {
+      "C": 0.01,
+      "validation_score": 0.014812448120183948
+    },
+    "Q0": {
+      "C": 0.01,
+      "validation_score": 0.9972815480017958
+    },
+    "M1": {
+      "C": 0.01,
+      "validation_score": 1.0176665507610254
+    },
+    "O1": {
+      "C": 0.01,
+      "validation_score": 0.013983089511846373
+    },
+    "Q1": {
+      "C": 0.01,
+      "validation_score": 0.9970942148060504
+    },
+    "M2": {
+      "C": 0.01,
+      "validation_score": 1.0182581428744235
+    },
+    "O2": {
+      "C": 0.01,
+      "validation_score": 0.014636647373738734
+    },
+    "Q2": {
+      "C": 0.01,
+      "validation_score": 0.9973894538101064
+    },
+    "M3": {
+      "C": 0.01,
+      "validation_score": 1.0174214344545764
+    },
+    "O3": {
+      "C": 0.01,
+      "validation_score": 0.0137853740187095
+    },
+    "Q3": {
+      "C": 0.01,
+      "validation_score": 0.9972014594353534
+    },
+    "Qcal": {
+      "C": 1.0,
+      "validation_score": 0.9962463454220624
+    }
+  },
+  "specs": {
+    "M0": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing"
+      ],
+      "division": true
+    },
+    "O0": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing"
+      ],
+      "division": true
+    },
+    "Q0": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D"
+      ],
+      "division": true
+    },
+    "M1": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff"
+      ],
+      "division": true
+    },
+    "O1": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff"
+      ],
+      "division": true
+    },
+    "Q1": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff"
+      ],
+      "division": true
+    },
+    "M2": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "O2": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "Q2": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "M3": {
+      "group": "outcome",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "O3": {
+      "group": "odds_fit",
+      "target": "odds",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "Q3": {
+      "group": "odds_increment",
+      "target": "outcome",
+      "columns": [
+        "elo_diff",
+        "h2h_count",
+        "h2h_missing",
+        "q_log_H_D",
+        "q_log_A_D",
+        "recent_ppg_diff",
+        "recent_gd_diff",
+        "recent_win_rate_diff",
+        "recent_goals_for_diff",
+        "recent_goals_against_diff",
+        "h2h_ppg_diff",
+        "h2h_gd",
+        "h2h_win_rate",
+        "h2h_goals_for",
+        "h2h_goals_against"
+      ],
+      "division": true
+    },
+    "Qcal": {
+      "group": "odds_calibration",
+      "target": "outcome",
+      "columns": [
+        "q_log_H_D",
+        "q_log_A_D"
+      ],
+      "division": false
+    }
+  },
+  "C_grid": [
+    0.01,
+    0.1,
+    1.0
+  ]
+}

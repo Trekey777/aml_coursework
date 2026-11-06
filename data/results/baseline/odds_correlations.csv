@@ -1,0 +1,11 @@
+feature,odds_target,spearman
+recent_ppg_diff,q_H-q_A,0.5690578813578583
+recent_gd_diff,q_H-q_A,0.611678620673039
+recent_win_rate_diff,q_H-q_A,0.5357194885902898
+recent_goals_for_diff,q_H-q_A,0.5373669454381151
+recent_goals_against_diff,q_H-q_A,-0.40224041838323515
+h2h_ppg_diff,q_H-q_A,0.5295092810197355
+h2h_gd,q_H-q_A,0.5669055992996608
+h2h_win_rate,q_H-q_A,0.46625511492642024
+h2h_goals_for,q_H-q_A,0.42779480460740443
+h2h_goals_against,q_H-q_A,-0.4403664068824037

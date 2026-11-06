@@ -4,12 +4,6 @@ __pycache__/
 .ipynb_checkpoints/
 .idea/
 
-# Input data and generated artifacts stay local.
-data/raw/*.csv
-data/processed/*.csv
-data/processed/*.npz
-data/results/
-
 # Local bundles and temporary exports.
 /reports.zip
 /deliverables/*.zip

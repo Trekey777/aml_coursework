@@ -9,7 +9,3 @@ scipy==1.18.1
 matplotlib==3.11.2
 joblib==1.6.0
 threadpoolctl==3.7.0
-
-# NVIDIA CUDA 12.8 wheel (CPU execution also supported)
---extra-index-url https://download.pytorch.org/whl/cu128
-torch==2.11.0+cu128

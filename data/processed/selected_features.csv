@@ -1,0 +1,11 @@
+group,feature
+recent_form,recent_ppg_diff
+recent_form,recent_gd_diff
+recent_form,recent_win_rate_diff
+recent_form,recent_goals_for_diff
+recent_form,recent_goals_against_diff
+head_to_head,h2h_ppg_diff
+head_to_head,h2h_gd
+head_to_head,h2h_win_rate
+head_to_head,h2h_goals_for
+head_to_head,h2h_goals_against
